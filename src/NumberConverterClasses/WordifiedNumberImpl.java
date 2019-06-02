@@ -41,7 +41,7 @@ public class WordifiedNumberImpl implements WordifiedNumber {
                     numberConvertedtoWord = new StringBuilder(numberConvertedtoWord.substring(0, numberConvertedtoWord.length() - 4));
             }
 
-        return numberConvertedtoWord.toString();
+        return numberConvertedtoWord.toString().trim();
     }
 
     private static String mapNumbertoWord(String number, int position, int lastThreeDigits) {
