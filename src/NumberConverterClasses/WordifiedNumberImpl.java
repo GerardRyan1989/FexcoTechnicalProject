@@ -17,14 +17,12 @@ public class WordifiedNumberImpl implements WordifiedNumber {
 
         StringBuilder numberConvertedtoWord = new StringBuilder();
             for (int position = numbers.size() -1; position >= 0 ; position--)
-                if ((position == 1 || position == 3 || position == 6) && numbers.get(position).equals("1")) {
+                if ((position == 1 || position == 4 || position == 7) && numbers.get(position).equals("1")) {
                     String newNumber = numbers.get(position) + numbers.get(position - 1);
-                    numberConvertedtoWord.append(mapNumbertoWord(newNumber, position, numbers.size()));
+                    numberConvertedtoWord.append(mapNumbertoWord(newNumber, position, newNumber.length()));
                     position--;
                 } else {
-                    if(position >= 0){
-                        numberConvertedtoWord.append(mapNumbertoWord(numbers.get(position), position, numbers.size()));
-                    }
+                        numberConvertedtoWord.append(mapNumbertoWord(numbers.get(position), position, numbers.get(position).length()));
                 }
         return numberConvertedtoWord.toString();
     }
@@ -35,7 +33,6 @@ public class WordifiedNumberImpl implements WordifiedNumber {
 
         switch (position) {
             case 0:
-                //oneToNineteen
                 word = engWords.returnword("oneToNineteen", number);
                 break;
             case 1:
@@ -44,35 +41,37 @@ public class WordifiedNumberImpl implements WordifiedNumber {
                 }else{
                     word = engWords.returnword("tens", number);
                 }
-
                 //maybe ten to nine teen
                 break;
             case 2:
-                //oneToNineteen
-                word = engWords.returnword("oneToNineteen", number);
+                    //oneToNineteen
+                     word = engWords.returnword("oneToNineteen", number);
                 break;
             case 3:
-                //oneToNineteen
-                word = engWords.returnword("oneToNineteen", number);
+                    word = engWords.returnword("oneToNineteen", number);
                 break;
             case 4:
-                //tens
-                word = engWords.returnword("tens", number);
+                if(number.length() == 2){
+                    word = engWords.returnword("oneToNineteen", number);
+                }else{
+                    word = engWords.returnword("tens", number);
+                }
                 break;
             case 5:
                 //oneToNineteen
                 word = engWords.returnword("oneToNineteen", number);
                 break;
             case 6:
-                //oneToNineteen
-                word = engWords.returnword("oneToNineteen", number);
+                    word = engWords.returnword("oneToNineteen", number);
                 break;
             case 7:
-                //tens
-                word = engWords.returnword("tens", number);
+                if(number.length() == 2){
+                    word = engWords.returnword("oneToNineteen", number);
+                }else{
+                    word = engWords.returnword("tens", number);
+                }
                 break;
             case 8:
-                //oneToNineteen
                 word = engWords.returnword("oneToNineteen", number);
                 break;
             default:
