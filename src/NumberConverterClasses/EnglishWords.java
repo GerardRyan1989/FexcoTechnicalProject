@@ -1,59 +1,82 @@
 package NumberConverterClasses;
-
 import java.util.HashMap;
 
 public class EnglishWords {
     HashMap<String, String> oneToNineteen = new HashMap<>();
     HashMap<String, String> tens = new HashMap<>();
-
-
-    public final String thousands = "Thousand";
-    public final String million = "Million";
+    private final String thousands = "thousand ";
+    private final String millions = "million ";
+    private final String hundreds = "hundred ";
+    private final String and = "and ";
 
     public EnglishWords() {
         //Store the variables for oneToNineteen in HashMap
         oneToNineteen.put("0", "");
-        oneToNineteen.put("1", "One ");
-        oneToNineteen.put("2", "Two ");
-        oneToNineteen.put("3", "Three ");
-        oneToNineteen.put("4", "Four ");
-        oneToNineteen.put("5", "Five ");
-        oneToNineteen.put("6", "Six ");
-        oneToNineteen.put("7", "Seven ");
-        oneToNineteen.put("8", "Eight ");
-        oneToNineteen.put("9", "Nine ");
-        oneToNineteen.put("10", "Ten ");
-        oneToNineteen.put("11", "Eleven ");
-        oneToNineteen.put("12", "Twelve ");
-        oneToNineteen.put("13", "Thirteen ");
-        oneToNineteen.put("14", "Fourteen ");
-        oneToNineteen.put("15", "Fifteen ");
-        oneToNineteen.put("16", "Sixteen ");
-        oneToNineteen.put("17", "Seventeen ");
-        oneToNineteen.put("18", "Eighteen ");
-        oneToNineteen.put("19", "Nineteen ");
+        oneToNineteen.put("1", "one ");
+        oneToNineteen.put("2", "two ");
+        oneToNineteen.put("3", "three ");
+        oneToNineteen.put("4", "four ");
+        oneToNineteen.put("5", "five ");
+        oneToNineteen.put("6", "six ");
+        oneToNineteen.put("7", "seven ");
+        oneToNineteen.put("8", "eight ");
+        oneToNineteen.put("9", "nine ");
+        oneToNineteen.put("10", "ten ");
+        oneToNineteen.put("11", "eleven ");
+        oneToNineteen.put("12", "twelve ");
+        oneToNineteen.put("13", "thirteen ");
+        oneToNineteen.put("14", "fourteen ");
+        oneToNineteen.put("15", "fifteen ");
+        oneToNineteen.put("16", "sixteen ");
+        oneToNineteen.put("17", "seventeen ");
+        oneToNineteen.put("18", "eighteen ");
+        oneToNineteen.put("19", "nineteen ");
 
         //store the variables for tens in HashMap
         tens.put("0", "");
-        tens.put("1", "Ten ");
-        tens.put("2", "Twenty ");
-        tens.put("3", "Thirty ");
-        tens.put("4", "Forty ");
-        tens.put("5", "Fifty ");
-        tens.put("6", "Sixty ");
-        tens.put("7", "Seventy ");
-        tens.put("8", "Eighty ");
-        tens.put("9", "Ninety ");
+        tens.put("1", "ten ");
+        tens.put("2", "twenty ");
+        tens.put("3", "thirty ");
+        tens.put("4", "forty ");
+        tens.put("5", "fifty ");
+        tens.put("6", "sixty ");
+        tens.put("7", "seventy ");
+        tens.put("8", "eighty ");
+        tens.put("9", "ninety ");
     }
 
 
-    public String returnword(String value, String number) {
+    public String returnword(String value, String number, int position) {
         String word = "";
         if (value.equals("oneToNineteen")) {
            word = oneToNineteen.get(number);
         } else if (value.equals("tens")) {
             word = tens.get(number);
         }
+
+        if(position == 6 && !number.equals("0")){
+            word += millions;
+        }
+
+        if(position == 3 && !number.equals("0") ||( position == 4 && number.equals("10"))){
+            word+= thousands;
+        }
+
+        if((position == 2 && !number.equals("0")) || (position == 5 && !number.equals("0")) || (position == 8 && !number.equals("0"))){
+            word += hundreds;
+            if(position == 5 || position == 8){
+                word += and;
+            }
+        }
             return word;
+    }
+
+
+    String checkLastThreeDigitsForAnd(int number){
+        String word = "";
+        if(number % 10 != 0){
+            word = and;
+        }
+        return word;
     }
 }
