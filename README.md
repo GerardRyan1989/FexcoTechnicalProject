@@ -26,6 +26,6 @@ Given 105 output one hundred and fifth
 To implement the ordinal numbers on the next release developers would have to add the english words required for the ordinal numbers to the EnglishWords Class and map these words to number value. Once these have been added a method would need to be created to access and return these values. 
 
 A new class that implements the WordifiedNumber Interface would have to be created. In this class the developers would have to iterate through the number
-and pass the values into the returnword from the english class expect for the last digit in the number that is greater than 0. This Digit would have to 
+and pass the values into the returnword method from the english class except for the last digit in the number that is greater than 0. This Digit would have to 
 be passed into a method that returns the ordinal number based on the position and value of the digit.
 
