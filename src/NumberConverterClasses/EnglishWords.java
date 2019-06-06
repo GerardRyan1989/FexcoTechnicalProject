@@ -32,7 +32,6 @@ public class EnglishWords {
         oneToNineteen.put("18", "eighteen ");
         oneToNineteen.put("19", "nineteen ");
 
-
         //store the variables for tens in HashMap
         tens.put("0", "");
         tens.put("1", "ten ");

@@ -17,8 +17,6 @@ public class WordifiedNumberImpl implements WordifiedNumber {
 
     //this method reads in a list and then iterates through the list passing the values to the  map number to word method
     private static String getNumberAsWord(List<String> numbers) {
-
-
         //the below code gets the last three digits of the number to allow it to be passed into the CheckLastThreeDigitsForAnd method in the EnglishWords Class
         int lastThreeDigits = 100;
         StringBuilder lastThreeDigitsAsString = new StringBuilder();
@@ -32,24 +30,24 @@ public class WordifiedNumberImpl implements WordifiedNumber {
         //use a string builder to build the number in the english language
         StringBuilder numberConvertedtoWord = new StringBuilder();
         //iterate through the number and pass the number to the mapNumberToWord Method
-            for (int position = numbers.size() -1; position >= 0 ; position--) {
-                //this if statement checks the value and position of a number for example if the number 1 appears in a certain position
-                //the next number is needed as well to create the english word: for example take the number 1019 the number one for the number 1 nad 9 are needed to create the word nineteen.
-                //the if statement checks the positions where this can occur and then creates a number using two numbers in the list where it has happened.
-                // it then iterates to ensure the next number is skipped past.
-                if ((position == 1 || position == 4 || position == 7) && numbers.get(position).equals("1")) {
-                    String newNumber = numbers.get(position) + numbers.get(position - 1);
-                    numberConvertedtoWord.append(mapNumbertoWord(newNumber, position, lastThreeDigits));
-                    position--;
-                } else {
-                    numberConvertedtoWord.append(mapNumbertoWord(numbers.get(position), position, lastThreeDigits));
-                }
+        for (int position = numbers.size() -1; position >= 0 ; position--) {
+            //this if statement checks the value and position of a number for example if the number 1 appears in a certain position
+            //the next number is needed as well to create the english word: for example take the number 1019 the number one for the number 1 nad 9 are needed to create the word nineteen.
+            //the if statement checks the positions where this can occur and then creates a number using two numbers in the list where it has happened.
+            // it then iterates to ensure the next number is skipped past.
+            if ((position == 1 || position == 4 || position == 7) && numbers.get(position).equals("1")) {
+                String newNumber = numbers.get(position) + numbers.get(position - 1);
+                numberConvertedtoWord.append(mapNumbertoWord(newNumber, position, lastThreeDigits));
+                position--;
+            } else {
+                numberConvertedtoWord.append(mapNumbertoWord(numbers.get(position), position, lastThreeDigits));
             }
+        }
 
-            //check the word "and" is not at the end of the string
-            if(numberConvertedtoWord.substring(numberConvertedtoWord.length() - 4).equals("and ")){
-                    numberConvertedtoWord = new StringBuilder(numberConvertedtoWord.substring(0, numberConvertedtoWord.length() - 4));
-            }
+        //check the word "and" is not at the end of the string
+        if(numberConvertedtoWord.substring(numberConvertedtoWord.length() - 4).equals("and ")){
+            numberConvertedtoWord = new StringBuilder(numberConvertedtoWord.substring(0, numberConvertedtoWord.length() - 4));
+        }
 
         return numberConvertedtoWord.toString().trim();
     }
