@@ -3,7 +3,7 @@ package NumberConverterClasses;
 public class FrenchWords {
 
     public FrenchWords(){
-        //implemente the code here to map the french language to the corresponding number
+        //implement the code here to map the french language to the corresponding number
     }
 
     public String getWords(){

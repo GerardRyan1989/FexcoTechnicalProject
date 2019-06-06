@@ -8,14 +8,12 @@ public class EnglishWordsTests {
     EnglishWords words = new EnglishWords();
     @Test
     public void returnWordsUnit() {
-
         String returnedWord = words.returnword("oneToNineteen", "9", 8);
         Assert.assertEquals("nine hundred and ", returnedWord);
     }
 
     @Test
     public void returnWordsTens() {
-
         String returnedWord = words.returnword("tens", "7", 7);
         Assert.assertEquals("seventy ", returnedWord);
     }
