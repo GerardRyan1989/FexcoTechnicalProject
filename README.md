@@ -16,7 +16,7 @@ WordifiedNumberImplFrench Class: This contains skeleton code and comments to sho
 
 FrenchWords Class: This class contains skeleton code with comments toi show how it would be implemented.
 
-#Next release
+# Next release
 The design should also take into account that a requirement for the next release is to also support outputting numbers as:
 Given 1 output first
 Given 2 output second
