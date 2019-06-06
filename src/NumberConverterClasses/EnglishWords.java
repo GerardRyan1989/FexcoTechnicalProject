@@ -32,6 +32,7 @@ public class EnglishWords {
         oneToNineteen.put("18", "eighteen ");
         oneToNineteen.put("19", "nineteen ");
 
+
         //store the variables for tens in HashMap
         tens.put("0", "");
         tens.put("1", "ten ");
@@ -45,16 +46,18 @@ public class EnglishWords {
         tens.put("9", "ninety ");
     }
 
-
+    //this method reads in a number and return the number it is mapped to in either the oneToNineteen or tens Hashmap.
+    //it then adds the value of the number i.e hundreds, thousands, millions based on the position of the number.
     public String returnword(String value, String number, int position) {
         String word = "";
+
         if (value.equals("oneToNineteen")) {
            word = oneToNineteen.get(number);
         } else if (value.equals("tens")) {
             word = tens.get(number);
         }
 
-        if(position == 6 && !number.equals("0")){
+        if(position == 6 ){
             word += millions;
         }
 
@@ -71,8 +74,8 @@ public class EnglishWords {
             return word;
     }
 
-
-    String checkLastThreeDigitsForAnd(int number){
+    //this methods checks the last three digits of a number to decide if the word "and" should  be put before the last three digits
+    public String checkLastThreeDigitsForAnd(int number){
         String word = "";
         if(number % 10 != 0){
             word = and;

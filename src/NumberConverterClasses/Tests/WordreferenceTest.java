@@ -1,4 +1,4 @@
-package Tests;
+package NumberConverterClasses.Tests;
 import NumberConverterClasses.WordifiedNumber;
 import NumberConverterClasses.WordifiedNumberImpl;
 import org.junit.Test;
